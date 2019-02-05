@@ -70,8 +70,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MapsActivity.this, LoginActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(MapsActivity.this, LoginActivity.class));
             }
         });
     }
@@ -114,12 +113,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void refreshPins() {
+        Gson gson = new Gson();
+        LatLng latLng;
+        MonumentInfo monumentInfo;
         for (Monument monument : monumentList) {
-            LatLng latLng = new LatLng(monument.getCoordinates().getLatitude(), monument.getCoordinates().getLongitude());
-            MonumentInfo monumentInfo = new MonumentInfo();
+            latLng = new LatLng(monument.getCoordinates().getLatitude(), monument.getCoordinates().getLongitude());
+            monumentInfo = new MonumentInfo();
             monumentInfo.setName(monument.getName());
             monumentInfo.setFunction(monument.getFunction());
-            monumentInfo.setCreationDate(monument.getCreationDate());
+            monumentInfo.setCreationDate(monument.getCreationDate().toString());
             monumentInfo.setArchivalSource(monument.getArchivalSource());
             monumentInfo.setStreet(monument.getAddress().getStreet());
             monumentInfo.setHouseNumber(monument.getAddress().getHouseNumber());
@@ -127,7 +129,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             monumentInfo.setPostCode(monument.getAddress().getPostCode());
             monumentInfo.setCity(monument.getAddress().getCity());
             monumentInfo.setCountry(monument.getAddress().getCountry());
-            Gson gson = new Gson();
             String markerInfoString  = gson.toJson(monumentInfo);
 
             mMap.addMarker(new MarkerOptions()
@@ -135,6 +136,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     .title(monument.getName())
                     .snippet(markerInfoString));
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 
     class MyLocationListener implements LocationListener {
@@ -145,9 +151,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 LatLng position = new LatLng(location.getLatitude(), location.getLongitude());
                 mMap.addMarker(new MarkerOptions()
                         .position(position)
-                        .title("Jesteś w tym miejscu")
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo( 12.0f ));
                 locationFound = true;
             }
         }

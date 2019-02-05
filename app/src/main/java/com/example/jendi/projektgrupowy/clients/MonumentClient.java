@@ -18,6 +18,7 @@ public class MonumentClient extends BaseClient {
 
     public List<Monument> getAllMonuments() throws IOException {
         Call<List<Monument>> call = service.getAllMonuments();
-        return call.execute().body();
+        List<Monument> monuments = call.execute().body();
+        return monuments;
      }
 }

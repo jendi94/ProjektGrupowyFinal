@@ -19,7 +19,7 @@ public class Monument {
     private String function;
     @SerializedName("creationDate")
     @Expose
-    private Long creationDate;
+    private Date creationDate;
     @SerializedName("archivalSource")
     @Expose
     private String archivalSource;
@@ -60,12 +60,11 @@ public class Monument {
         this.function = function;
     }
 
-    public String getCreationDate() {
-        Date date = new Date(creationDate);
-        return date.toString();
+    public Date getCreationDate() {
+        return creationDate;
     }
 
-    public void setCreationDate(Long creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 

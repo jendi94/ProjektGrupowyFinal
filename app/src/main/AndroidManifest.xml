@@ -44,6 +44,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.LoginActivity"></activity>
+        <activity android:name=".activities.LoggedActivity" />
     </application>
 
 </manifest>
