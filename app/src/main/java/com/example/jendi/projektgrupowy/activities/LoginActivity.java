@@ -25,9 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        final SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor = sharedPreferences.edit();
-
 
         final EditText username = findViewById(R.id.loginUsername);
         final EditText password = findViewById(R.id.loginPassword);
@@ -53,20 +50,20 @@ public class LoginActivity extends AppCompatActivity {
 
                 try {
                     response = userClient.logIn(loginRequest);
-                    editor.putString(getString(R.string.token), response.getToken());
-                    editor.commit();
+                    Intent intent = new Intent(LoginActivity.this, LoggedActivity.class);
+                    intent.putExtra("token", response.getToken());
+                    intent.putExtra("superUser", response.getSuperUser());
+                    startActivity(intent);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-//                String highScore = sharedPreferences.getString(getString(R.string.token), "");
-                startActivity(new Intent(LoginActivity.this, LoggedActivity.class));
             }
         });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (rPassword.getText().equals(rPasswordAgain.getText())) {
+                if (rPassword.getText().toString().equals(rPasswordAgain.getText().toString())) {
                     RegistrationRequest registrationRequest = new RegistrationRequest();
                     registrationRequest.setLogin(rUsername.getText().toString());
                     registrationRequest.setPassword(rPassword.getText().toString());
@@ -75,12 +72,13 @@ public class LoginActivity extends AppCompatActivity {
 
                     try {
                         response = userClient.register(registrationRequest);
-                        editor.putString(getString(R.string.token), response.getToken());
-                        editor.commit();
+                        Intent intent = new Intent(LoginActivity.this, LoggedActivity.class);
+                        intent.putExtra("token", response.getToken());
+                        intent.putExtra("superUser", response.getSuperUser());
+                        startActivity(intent);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    startActivity(new Intent(LoginActivity.this, LoggedActivity.class));
                 }
             }
         });

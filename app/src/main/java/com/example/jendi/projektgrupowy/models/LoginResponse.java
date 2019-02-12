@@ -17,6 +17,9 @@ public class LoginResponse {
     @SerializedName("token")
     @Expose
     private String token;
+    @SerializedName("superUser")
+    @Expose
+    private Boolean superUser;
 
     public String getLogin() {
         return login;
@@ -50,4 +53,11 @@ public class LoginResponse {
         this.token = token;
     }
 
+    public Boolean getSuperUser() {
+        return superUser;
+    }
+
+    public void setSuperUser(Boolean superUser) {
+        this.superUser = superUser;
+    }
 }

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nazwa..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <EditText
+                android:id="@+id/editFunction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Funkcja..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <EditText
+                android:id="@+id/editStreet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ulica..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <EditText
+                android:id="@+id/editHouseNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Numer domu..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <EditText
+                android:id="@+id/editFlatNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Numer mieszkania..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <EditText
+                android:id="@+id/editPostCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Kod pocztowy..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <EditText
+                android:id="@+id/editCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Miasto..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <EditText
+                android:id="@+id/editCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Kraj..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <EditText
+                android:id="@+id/editCreationDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Data powstania..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <EditText
+                android:id="@+id/editArchive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Źródło archiwalne..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <EditText
+                android:id="@+id/editLegalStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Status prawny..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <EditText
+                android:id="@+id/editType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Rodzaj..."
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="84dp"
+                tools:layout_editor_absoluteY="102dp" />
+
+            <Button
+                android:id="@+id/buttonSend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DODAJ" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

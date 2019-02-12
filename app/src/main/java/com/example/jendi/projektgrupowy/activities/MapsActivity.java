@@ -103,12 +103,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         try {
-            monumentList = monumentClient.getAllMonuments();
+            monumentList = monumentClient.getAllApprovedMonuments();
         } catch (IOException e) {
             e.printStackTrace();
         }
         MonumentInfoWindow infoWindow = new MonumentInfoWindow(MapsActivity.this);
         mMap.setInfoWindowAdapter(infoWindow);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(54.3, 18.5)));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(7.0f));
         refreshPins();
     }
 
@@ -116,26 +118,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Gson gson = new Gson();
         LatLng latLng;
         MonumentInfo monumentInfo;
-        for (Monument monument : monumentList) {
-            latLng = new LatLng(monument.getCoordinates().getLatitude(), monument.getCoordinates().getLongitude());
-            monumentInfo = new MonumentInfo();
-            monumentInfo.setName(monument.getName());
-            monumentInfo.setFunction(monument.getFunction());
-            monumentInfo.setCreationDate(monument.getCreationDate().toString());
-            monumentInfo.setArchivalSource(monument.getArchivalSource());
-            monumentInfo.setStreet(monument.getAddress().getStreet());
-            monumentInfo.setHouseNumber(monument.getAddress().getHouseNumber());
-            monumentInfo.setFlatNumber(monument.getAddress().getFlatNumber());
-            monumentInfo.setPostCode(monument.getAddress().getPostCode());
-            monumentInfo.setCity(monument.getAddress().getCity());
-            monumentInfo.setCountry(monument.getAddress().getCountry());
-            String markerInfoString  = gson.toJson(monumentInfo);
 
-            mMap.addMarker(new MarkerOptions()
-                    .position(latLng)
-                    .title(monument.getName())
-                    .snippet(markerInfoString));
+        if (monumentList!=null) {
+            for (Monument monument : monumentList) {
+                latLng = new LatLng(monument.getCoordinates().getLatitude(), monument.getCoordinates().getLongitude());
+                monumentInfo = new MonumentInfo();
+                monumentInfo.setName(monument.getName());
+                monumentInfo.setFunction(monument.getFunction());
+                monumentInfo.setCreationDate(monument.getCreationDate().toString());
+                monumentInfo.setArchivalSource(monument.getArchivalSource());
+                monumentInfo.setStreet(monument.getAddress().getStreet());
+                monumentInfo.setHouseNumber(monument.getAddress().getHouseNumber());
+                monumentInfo.setFlatNumber(monument.getAddress().getFlatNumber());
+                monumentInfo.setPostCode(monument.getAddress().getPostCode());
+                monumentInfo.setCity(monument.getAddress().getCity());
+                monumentInfo.setCountry(monument.getAddress().getCountry());
+                String markerInfoString  = gson.toJson(monumentInfo);
+
+                mMap.addMarker(new MarkerOptions()
+                        .position(latLng)
+                        .title(monument.getName())
+                        .snippet(markerInfoString));
+            }
         }
+
     }
 
     @Override
@@ -153,7 +159,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .position(position)
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
-                mMap.animateCamera(CameraUpdateFactory.zoomTo( 12.0f ));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo( 10.0f ));
                 locationFound = true;
             }
         }

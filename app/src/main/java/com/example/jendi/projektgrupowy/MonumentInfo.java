@@ -2,6 +2,7 @@ package com.example.jendi.projektgrupowy;
 
 public class MonumentInfo {
 
+    private int id;
     private String name;
     private String function;
     private String creationDate;
@@ -12,6 +13,8 @@ public class MonumentInfo {
     private String postCode;
     private String city;
     private String country;
+    private String legalStatus;
+    private String type;
 
     public MonumentInfo() {
         this.name = "Nazwa: ";
@@ -24,6 +27,8 @@ public class MonumentInfo {
         this.postCode = "Kod pocztowy: ";
         this.city = "Miasto: ";
         this.country = "Kraj: ";
+        this.legalStatus = "Status prawny: ";
+        this.type = "Typ: ";
     }
 
     public String getName() {
@@ -104,5 +109,29 @@ public class MonumentInfo {
 
     public void setCountry(String country) {
         this.country += country;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getLegalStatus() {
+        return legalStatus;
+    }
+
+    public void setLegalStatus(String legalStatus) {
+        this.legalStatus = legalStatus;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

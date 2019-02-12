@@ -33,6 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/mapLogged"
@@ -43,18 +44,30 @@
         app:tabTextColor="@color/common_google_signin_btn_text_dark_focused">
 
         <android.support.design.widget.TabItem
+            android:id="@+id/tabAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Left" />
+            android:text="Dodaj" />
 
         <android.support.design.widget.TabItem
+            android:id="@+id/tabManage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Center" />
-
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Right" />
+            android:text="Zarządzaj" />
     </android.support.design.widget.TabLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/mapLogged"
+        app:layout_constraintEnd_toEndOf="@+id/mapLogged"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/mapLogged"
+        app:layout_constraintTop_toTopOf="@+id/mapLogged"
+        app:layout_constraintVertical_bias="0.979"
+        app:srcCompat="@android:drawable/ic_menu_add" />
 </android.support.constraint.ConstraintLayout>

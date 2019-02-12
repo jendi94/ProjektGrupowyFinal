@@ -2,5 +2,5 @@
     <string name="app_name">ProjektGrupowy</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_login">Sign in</string>
-    <string name="token"></string>
+    <string name="token">eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJVbml2ZXJzZU1vbnVtZW50cyIsInN1YiI6ImsiLCJpYXQiOjE1NDk0ODcyMjYsImV4cCI6MTU0OTQ5NDQyNiwidXNlcklkIjo0MDU2LCJ1c2VyTG9naW4iOiJrIn0.Gmr5PD0Qx_mzQv3v5n34lxkfFrojYf56maIU48nqPvIBEXXguN3QPQF31bqrjNkNxVSQTnMw_BuXMoQR_5z2sw</string>
 </resources>
