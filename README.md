@@ -6,4 +6,4 @@ Instrukcja uruchomieniowa dla wersji Android Projektu Grupowego.
 
 3. Po pomyślnie zakończonej konfiguracji należy podpiąć do komputera telefon, a następnie użyć komendy Run. Aplikacja zbuduje się, a Android Studio zainstaluje .apk w telefonie.
 
-4. Jeżeli chcemy zainstalować aplikację bez użycia środowiska programistycznego, wystarczy pobrać z repozytorium plik z rozszerzeniem APK, wrzucić go na telefon i następnie w telefonie kliknąć go w systemowym eksploratorze plików. System sam zainstaluje aplikację.
+4. Jeżeli chcemy zainstalować aplikację bez użycia środowiska programistycznego, wystarczy pobrać z repozytorium plik z rozszerzeniem APK (app/build/outputs/apk/debug/), wrzucić go na telefon i następnie w telefonie kliknąć go w systemowym eksploratorze plików. System sam zainstaluje aplikację.
